@@ -1,8 +1,20 @@
 # MCT · Minecraft 地图汉化助手 v2
 
-> 本项目由 MCC-I18n-Plus 更名而来，现正式名称为 **MCT**。
-
 基于开源项目 [MCC-i18n](https://github.com/BiliBiliACEGE/MCC-i18n)（原作者 BiliBiliACEGE）重构的现代化汉化工具，修复了「扫不出游戏内对话」的问题（对话文本位于 .mca 压缩区块中，现用 NBT 真实解析提取）。除世界存档外，还支持**材质包 / 光影包 / Mod** 的英文文本汉化。
+
+## 拒绝废话看图
+
+<table>
+  <tr>
+    <td><img width="1242" height="986" alt="image" src="https://github.com/user-attachments/assets/29e04bc0-9622-4fd1-8867-9d5c0fab56ac" /></td>
+    <td><img width="1242" height="1018" alt="image" src="https://github.com/user-attachments/assets/b13e9ab7-d551-4494-ae81-f6be73e4a814" /></td>
+  </tr>
+  <tr>
+    <td><img width="1242" height="986" alt="image" src="https://github.com/user-attachments/assets/3d38cf91-3928-4420-85e3-2761e2164319" /></td>
+    <td><img width="1242" height="986" alt="image" src="https://github.com/user-attachments/assets/8bf45f3c-5284-4f10-aca4-8a9744c4c550" /></td>
+  </tr>
+</table>
+
 
 ## 功能
 
