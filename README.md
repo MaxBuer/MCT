@@ -2,6 +2,9 @@
 
 基于开源项目 [MCC-i18n](https://github.com/BiliBiliACEGE/MCC-i18n)（原作者 BiliBiliACEGE）重构的现代化汉化工具，修复了「扫不出游戏内对话」的问题（对话文本位于 .mca 压缩区块中，现用 NBT 真实解析提取）。除世界存档外，还支持**材质包 / 光影包 / Mod** 的英文文本汉化。
 
+## Tips
+如果你电脑有Python那就直接下载ZIP就好了总共也就108Kb的大小，解压双击mian.py就可以运行了
+
 ## 拒绝废话看图
 
 <table>
