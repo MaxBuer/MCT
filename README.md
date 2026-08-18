@@ -1,4 +1,5 @@
 # MCT · Minecraft 地图汉化助手 v2
+# MineCraft Translation  V2
 
 基于开源项目 [MCC-i18n](https://github.com/BiliBiliACEGE/MCC-i18n)（原作者 BiliBiliACEGE）重构的现代化汉化工具，修复了「扫不出游戏内对话」的问题（对话文本位于 .mca 压缩区块中，现用 NBT 真实解析提取）。除世界存档外，还支持**材质包 / 光影包 / Mod** 的英文文本汉化。
 
