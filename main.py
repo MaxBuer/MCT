@@ -17,8 +17,8 @@ import re
 import shutil
 import sys
 
-from PyQt6.QtCore import Qt, QThread, pyqtSignal
-from PyQt6.QtGui import QFont, QIcon
+from PyQt6.QtCore import Qt, QThread, pyqtSignal, QUrl
+from PyQt6.QtGui import QFont, QIcon, QDesktopServices
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,
     QLabel, QPushButton, QLineEdit, QComboBox, QCheckBox, QTableWidget,
@@ -34,6 +34,9 @@ from utils.ai_translator import build_translator
 from utils.logger import get_logger
 from utils.config import Config
 from utils import pack_helper
+
+# 项目 GitHub 主页
+GITHUB_URL = "https://github.com/MaxBuer/MCT"
 
 # ---------------------------------------------------------------- 主题
 
@@ -388,11 +391,13 @@ class ScanPage(QWidget):
         self.log_text.setMaximumHeight(150)
         lay.addWidget(self.log_text)
 
-        # 原项目署名
+        # 原项目署名 + 项目主页
         credit = QLabel(
-            '基于开源项目 <a href="https://github.com/BiliBiliACEGE/MCC-i18n" '
+            f'<a href="{GITHUB_URL}" style="color:#0d9c8a;text-decoration:none;">'
+            '⭐ MCT 项目主页</a>'
+            ' · 基于开源项目 <a href="https://github.com/BiliBiliACEGE/MCC-i18n" '
             'style="color:#0d9c8a;text-decoration:none;">MCC-i18n</a>'
-            '（原作者 BiliBiliACEGE）· GitHub 开源')
+            '（原作者 BiliBiliACEGE）')
         credit.setOpenExternalLinks(True)
         credit.setObjectName("hint")
         lay.addWidget(credit)
@@ -1455,6 +1460,11 @@ class MainWindow(QMainWindow):
         self.open_log_btn.setObjectName("nav_btn")
         self.open_log_btn.clicked.connect(self.open_log)
         nl.addWidget(self.open_log_btn)
+        self.github_btn = QPushButton("⭐ GitHub")
+        self.github_btn.setObjectName("nav_btn")
+        self.github_btn.setToolTip("打开项目主页 https://github.com/MaxBuer/MCT")
+        self.github_btn.clicked.connect(self.open_github)
+        nl.addWidget(self.github_btn)
         self.theme_btn = QPushButton("🌙 深色模式" if not self.dark else "☀ 浅色模式")
         self.theme_btn.setObjectName("nav_btn")
         self.theme_btn.clicked.connect(self.toggle_theme)
@@ -1521,6 +1531,15 @@ class MainWindow(QMainWindow):
                 subprocess.Popen(["xdg-open", path])
         except Exception as e:
             QMessageBox.warning(self, "打开失败", f"无法打开日志文件：{e}")
+
+    def open_github(self):
+        """用系统默认浏览器打开项目 GitHub 主页"""
+        try:
+            ok = QDesktopServices.openUrl(QUrl(GITHUB_URL))
+            if not ok:
+                raise RuntimeError("openUrl 返回 False")
+        except Exception as e:
+            QMessageBox.warning(self, "打开失败", f"无法打开项目主页：{e}\n请手动访问：\n{GITHUB_URL}")
 
 
 def main():
